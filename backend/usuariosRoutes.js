@@ -11,7 +11,7 @@ router.post('/login', (req, res) => {
     }
 
     // BUSCAR EL USUARIO EN LA BASE DE DATOS
-    db.query('SELECT * FROM usuarios WHERE usuario = ? AND contrasena = ?', [usuario, contrasena], (err, results) => {
+    db.query('SELECT * FROM veterinarios WHERE usuario = ? AND contrasena = ?', [usuario, contrasena], (err, results) => {
         if(err) {
             return res.status(500).send('Error en la consulta')
         }
@@ -23,7 +23,7 @@ router.post('/login', (req, res) => {
         const usuarioEncontrado = results[0]
 
         res.status(200).send({
-            mensaje: '',
+            mensaje: 'Bienvenido al sistema',
             usuario: {
                 usuario: usuarioEncontrado.usuario,
                 nombre: usuarioEncontrado.nombre
