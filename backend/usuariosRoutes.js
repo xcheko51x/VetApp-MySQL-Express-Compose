@@ -10,8 +10,20 @@ router.post('/login', (req, res) => {
         return res.status(400).send('Usuario y contraseña son obligatorios')
     }
 
+    // CONSULTA
+    const query = `
+        SELECT 
+            * 
+        FROM 
+            veterinarios 
+        WHERE 
+            usuario = ? 
+        AND 
+            contrasena = ?
+    `
+
     // BUSCAR EL USUARIO EN LA BASE DE DATOS
-    db.query('SELECT * FROM veterinarios WHERE usuario = ? AND contrasena = ?', [usuario, contrasena], (err, results) => {
+    db.query(query, [usuario, contrasena], (err, results) => {
         if(err) {
             return res.status(500).send('Error en la consulta')
         }
