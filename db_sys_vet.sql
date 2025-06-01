@@ -51,3 +51,17 @@ INSERT INTO mascotas (id_mascota, nombre, especie, sexo, id_propietario) VALUES
 (1, 'Firulais', 'Perro', 'm', 1),
 (2, 'Michi', 'Gato', 'h', 2),
 (3, 'Max', 'Perro', 'm', 3);
+
+INSERT INTO expedientes (
+    id_expediente,
+    id_mascota,
+    id_propietario,
+    usuario_veterinario,
+    fecha_atencion,
+    padecimiento,
+    tratamiento,
+    observaciones
+) VALUES
+(1, 1, 1, 'jlopez', '2025-05-20', 'Fiebre y letargo', 'Antibióticos por 5 días', 'Control en una semana'),
+(2, 2, 2, 'lmorales', '2025-05-22', 'Herida en pata derecha', 'Curación y vendaje', 'Revisar en 3 días'),
+(3, 3, 3, 'jlopez', '2025-05-25', 'Pérdida de apetito', 'Vitaminas y dieta especial', 'Monitorear por 1 semana');
